@@ -14,11 +14,14 @@
 
 <script>
 
-    const spaceNumbers = $.getJSON("data.json")
+    var spaceNumbers
+    $.getJSON("data.json", function(json){
+        spaceNumbers = json
+    })
 
     function updateLink() {
         var x = document.getElementById("space-number").value;
         document.getElementById("maps-link").innerHTML = "You selected: " + spaceNumbers[x];
     }
-        
+
 </script>
