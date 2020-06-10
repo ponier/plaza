@@ -1,3 +1,24 @@
 <!doctype html>
+
 <meta charset=utf-8>
-<title>It works!
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Plaza Del Rey</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<center>
+    Plaza Del Rey<br><br>
+    <input type="number" id="space-number" onchange="updateLink()"><br><br>
+    <div id="maps-link"></div>
+
+<script>
+
+    const spaceNumbers = $.getJSON("data.json")
+
+    function updateLink() {
+        var x = document.getElementById("space-number").value;
+        document.getElementById("maps-link").innerHTML = "You selected: " + spaceNumbers[x];
+    }
+        
+</script>
