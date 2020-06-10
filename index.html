@@ -23,8 +23,8 @@
 
     function updateLink() {
         const selectedNumber = document.getElementById("space-number").value;
-        const mapsAddress = spaceNumbers[selectedNumber] + " " selectedNumber;
-        const queryAddress = mapsAddress.split(" ").join("+")        
+        const mapsAddress = selectedNumber + " " + spaceNumbers[selectedNumber];
+        const queryAddress = mapsAddress.split(" ").join("+") + ",Sunnyvale,CA";
         document.getElementById("maps-link").innerHTML = "<a href=" + mapsBase + queryAddress + ">" + mapsAddress + "</a>";
     }
 
