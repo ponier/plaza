@@ -13,15 +13,19 @@
     <div id="maps-link"></div>
 
 <script>
-
+    
+    const mapsBase = "https://www.google.com/maps/place/"
     var spaceNumbers
+    
     $.getJSON("data.json", function(json){
         spaceNumbers = json
     })
 
     function updateLink() {
-        var x = document.getElementById("space-number").value;
-        document.getElementById("maps-link").innerHTML = "You selected: " + spaceNumbers[x];
+        const selectedNumber = document.getElementById("space-number").value;
+        const mapsAddress = spaceNumbers[selectedNumber] + " " selectedNumber;
+        const queryAddress = mapsAddress.split(" ").join("+")        
+        document.getElementById("maps-link").innerHTML = "<a href=" + mapsBase + queryAddress + ">" + mapsAddress + "</a>";
     }
 
 </script>
