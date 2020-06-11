@@ -10,6 +10,7 @@ $.getJSON("data.json", function(json){
 function updateLink() {
   const selectedNumber = document.getElementById("space-number").value;
   const mapsAddress = selectedNumber + " " + spaceNumbers[selectedNumber];
-  const queryAddress = mapsAddress.split(" ").join("+") + addressSuffix;
-  document.getElementById("maps-link").innerHTML = "<a href=" + mapsBase + queryAddress + ">" + mapsAddress + "</a>";
+  const mapsQuery = mapsAddress.split(" ").join("+") + addressSuffix;
+  const mapsUrl = mapsBase + mapsQuery
+  document.getElementById("maps-link").innerHTML = `<a href="${mapsUrl}">${mapsAddress}</a>`;
 }
