@@ -3,36 +3,15 @@
 <meta charset=utf-8>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<style>
-body, input {
-    font-family: cursive;
-    font-size: xx-large;
-}
-</style>
-
 <title>Plaza Del Rey</title>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="styles.css">
 
-<center>
-    Plaza Del Rey<br><br>
-    <input type="number" size="3" id="space-number" onchange="updateLink()"><br><br>
-    <div id="maps-link"></div>
+<script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script defer src="magic.js"></script>
 
-<script>
-    
-    const mapsBase = "https://www.google.com/maps/place/"
-    var spaceNumbers
-    
-    $.getJSON("data.json", function(json){
-        spaceNumbers = json
-    })
-
-    function updateLink() {
-        const selectedNumber = document.getElementById("space-number").value;
-        const mapsAddress = selectedNumber + " " + spaceNumbers[selectedNumber];
-        const queryAddress = mapsAddress.split(" ").join("+") + ",Sunnyvale,CA";
-        document.getElementById("maps-link").innerHTML = "<a href=" + mapsBase + queryAddress + ">" + mapsAddress + "</a>";
-    }
-
-</script>
+<div id="location-name">Plaza Del Rey</div>
+<div id="space-number-div">
+  <input type="number" size="3" id="space-number" onchange="updateLink()">
+</div>
+<div id="maps-link"></div>
