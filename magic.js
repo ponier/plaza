@@ -7,7 +7,7 @@ loadJSON();
 
 function loadJSON() {
   let xhr = (window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP"));
-  xhr.onreadystatechange = () => {
+  xhr.onreadystatechange = function() {
     if (this.readyState === 4 && this.status === 200) {
         spaceNumbers = JSON.parse(this.responseText);
     };
